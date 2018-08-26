@@ -29,15 +29,15 @@ Code for "Global burden of melioidosis, 2015: a systematic review and data synth
 <td>Perform DALY calculations</td>
 </tr>
 <tr>
-<td><code>plot-ntd.Rcode></td>
+<td><code>plot-ntd.R</code></td>
 <td>Make plot comparing burden and investment of selected NTDs</td>
 </tr>
 <tr>
-<td><code>global-daly-map.R<code></td>
+<td><code>global-daly-map.R</code></td>
 <td>Helper functions: plot country estimates on world map</td>
 </tr>
 <tr>
-<td><code>melioidosis-results.R<code></td>
+<td><code>melioidosis-results.R</code></td>
 <td>Helper functions: format results and export to table</td>
 </tr>
 </table>
