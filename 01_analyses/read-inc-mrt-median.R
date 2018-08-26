@@ -2,7 +2,9 @@
 #' title: MELIOIDOSIS / READ INC MRT / MEDIAN
 #' output:
 #'   github_document:
+#'     html_preview: false
 #'     toc: true
+#'     toc_depth: 2
 #' ---
 
 ## required packages

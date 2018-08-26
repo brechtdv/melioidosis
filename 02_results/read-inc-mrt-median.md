@@ -1,7 +1,7 @@
 MELIOIDOSIS / READ INC MRT / MEDIAN
 ================
 Bdevleesschauwer
-Sun Aug 26 19:06:21 2018
+Sun Aug 26 19:33:04 2018
 
 ``` r
 ## required packages
@@ -852,28 +852,31 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] bd_0.0.12
+    ##  [1] RColorBrewer_1.1-2 maps_3.3.0         maptools_0.9-3    
+    ##  [4] sp_1.3-1           prevalence_0.4.0   rjags_4-6         
+    ##  [7] coda_0.19-1        ggrepel_0.8.0      FERG2015_0.3.0    
+    ## [10] future.apply_1.0.0 future_1.9.0       mc2d_0.1-18       
+    ## [13] mvtnorm_1.0-8      ggplot2_3.0.0      bd_0.0.12         
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] Rcpp_0.12.18         highr_0.7            RColorBrewer_1.1-2  
-    ##  [4] bindr_0.1.1          cellranger_1.1.0     pillar_1.3.0        
-    ##  [7] compiler_3.5.1       plyr_1.8.4           tools_3.5.1         
-    ## [10] dotCall64_1.0-0      digest_0.6.15        evaluate_0.11       
-    ## [13] tibble_1.4.2         gtable_0.2.0         lattice_0.20-35     
-    ## [16] pkgconfig_2.0.1      rlang_0.2.1          yaml_2.2.0          
-    ## [19] spam_2.2-0           bindrcpp_0.2.2       rJava_0.9-10        
-    ## [22] coda_0.19-1          stringr_1.3.1        dplyr_0.7.6         
-    ## [25] knitr_1.20           maps_3.3.0           fields_9.6          
-    ## [28] rjags_4-6            XLConnectJars_0.2-15 tidyselect_0.2.4    
-    ## [31] rprojroot_1.3-2      grid_3.5.1           prevalence_0.4.0    
-    ## [34] glue_1.3.0           FERG2015_0.3.0       R6_2.2.2            
-    ## [37] readxl_1.1.0         foreign_0.8-70       rmarkdown_1.10      
-    ## [40] sp_1.3-1             rworldmap_1.3-6      purrr_0.2.5         
-    ## [43] ggplot2_3.0.0        magrittr_1.5         maptools_0.9-3      
-    ## [46] backports_1.1.2      scales_0.5.0         htmltools_0.3.6     
-    ## [49] assertthat_0.2.0     XLConnect_0.2-15     xtable_1.8-2        
-    ## [52] colorspace_1.3-2     stringi_1.1.7        lazyeval_0.2.1      
-    ## [55] munsell_0.5.0        crayon_1.3.4
+    ##  [1] spam_2.2-0           tidyselect_0.2.4     listenv_0.7.0       
+    ##  [4] purrr_0.2.5          rJava_0.9-10         lattice_0.20-35     
+    ##  [7] XLConnect_0.2-15     colorspace_1.3-2     htmltools_0.3.6     
+    ## [10] yaml_2.2.0           rlang_0.2.1          pillar_1.3.0        
+    ## [13] foreign_0.8-70       glue_1.3.0           withr_2.1.2         
+    ## [16] readxl_1.1.0         bindrcpp_0.2.2       plyr_1.8.4          
+    ## [19] bindr_0.1.1          stringr_1.3.1        fields_9.6          
+    ## [22] dotCall64_1.0-0      munsell_0.5.0        gtable_0.2.0        
+    ## [25] cellranger_1.1.0     codetools_0.2-15     evaluate_0.11       
+    ## [28] labeling_0.3         knitr_1.20           parallel_3.5.1      
+    ## [31] rworldmap_1.3-6      highr_0.7            Rcpp_0.12.18        
+    ## [34] xtable_1.8-2         XLConnectJars_0.2-15 scales_0.5.0        
+    ## [37] backports_1.1.2      digest_0.6.15        stringi_1.1.7       
+    ## [40] dplyr_0.7.6          cowplot_0.9.3        grid_3.5.1          
+    ## [43] rprojroot_1.3-2      tools_3.5.1          magrittr_1.5        
+    ## [46] lazyeval_0.2.1       tibble_1.4.2         crayon_1.3.4        
+    ## [49] pkgconfig_2.0.1      assertthat_0.2.0     rmarkdown_1.10      
+    ## [52] globals_0.12.1       R6_2.2.2             compiler_3.5.1
 
 ``` r
 ##rmarkdown::render("read-inc-mrt-median.R")

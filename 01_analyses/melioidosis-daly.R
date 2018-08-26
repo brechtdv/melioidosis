@@ -1,7 +1,9 @@
 #' ---
 #' output:
 #'   github_document:
+#'     html_preview: false
 #'     toc: true
+#'     toc_depth: 2
 #' ---
 
 #' # Settings

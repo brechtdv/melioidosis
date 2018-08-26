@@ -1,7 +1,7 @@
 sim-lle.R
 ================
 Bdevleesschauwer
-Sun Aug 26 19:14:04 2018
+Sun Aug 26 19:36:08 2018
 
 # Settings
 
@@ -131,7 +131,7 @@ knitr::kable(t(apply(lle_sim, 2, mean_ci)), digits = 1)
 |                                    | mean | 2.5% | 97.5% |
 | ---------------------------------- | ---: | ---: | ----: |
 | Indonesia                          | 26.5 | 26.2 |  26.7 |
-| Viet Nam                           | 34.2 | 33.6 |  34.8 |
+| Viet Nam                           | 34.2 | 33.7 |  34.8 |
 | Philippines                        | 29.1 | 28.6 |  29.7 |
 | Thailand                           | 31.5 | 31.3 |  31.7 |
 | China                              | 33.3 | 32.7 |  33.9 |
@@ -144,52 +144,52 @@ knitr::kable(t(apply(lle_sim, 2, mean_ci)), digits = 1)
 | Papua New Guinea                   | 28.6 | 28.1 |  29.2 |
 | Brunei Darussalam                  | 34.0 | 33.4 |  34.6 |
 | Timor-Leste                        | 27.2 | 26.9 |  27.4 |
-| Fiji                               | 29.3 | 28.8 |  29.9 |
+| Fiji                               | 29.3 | 28.8 |  29.8 |
 | India                              | 27.7 | 27.4 |  27.9 |
 | Bangladesh                         | 29.6 | 29.3 |  29.8 |
 | Sri Lanka                          | 30.5 | 30.2 |  30.7 |
 | Nepal                              | 27.4 | 27.1 |  27.6 |
-| Pakistan                           |  9.3 |  6.9 |  11.6 |
+| Pakistan                           |  9.3 |  6.9 |  11.7 |
 | Bhutan                             | 29.6 | 29.4 |  29.8 |
 | Nigeria                            | 23.6 | 17.5 |  30.4 |
 | Guinea                             | 25.7 | 19.1 |  33.4 |
 | Côte d’Ivoire                      | 23.4 | 17.6 |  29.9 |
-| Benin                              | 27.6 | 21.0 |  35.1 |
-| Madagascar                         | 27.8 | 20.9 |  35.7 |
-| Burkina Faso                       | 26.0 | 19.3 |  33.7 |
+| Benin                              | 27.6 | 21.0 |  35.2 |
+| Madagascar                         | 27.7 | 20.9 |  35.6 |
+| Burkina Faso                       | 26.0 | 19.3 |  33.6 |
 | Sierra Leone                       | 22.7 | 16.8 |  29.5 |
-| Mali                               | 25.9 | 19.4 |  33.3 |
+| Mali                               | 26.0 | 19.4 |  33.4 |
 | Cameroon                           | 26.0 | 20.0 |  32.9 |
-| Liberia                            | 26.4 | 19.6 |  34.3 |
+| Liberia                            | 26.4 | 19.5 |  34.2 |
 | Chad                               | 25.0 | 19.2 |  31.6 |
-| Ghana                              | 26.5 | 19.7 |  34.3 |
+| Ghana                              | 26.5 | 19.6 |  34.3 |
 | Niger                              | 26.6 | 19.9 |  34.1 |
-| United Republic of Tanzania        | 27.9 | 21.5 |  35.3 |
-| Congo                              | 28.0 | 21.5 |  35.5 |
+| United Republic of Tanzania        | 27.9 | 21.5 |  35.4 |
+| Congo                              | 27.9 | 21.4 |  35.4 |
 | Ethiopia                           | 28.5 | 21.8 |  36.2 |
-| Mozambique                         | 25.8 | 19.9 |  32.5 |
-| Democratic Republic of the Congo   | 27.0 | 20.5 |  34.3 |
+| Mozambique                         | 25.7 | 19.9 |  32.5 |
+| Democratic Republic of the Congo   | 27.0 | 20.5 |  34.4 |
 | Malawi                             | 27.0 | 20.8 |  34.3 |
-| Togo                               | 25.7 | 19.0 |  33.3 |
+| Togo                               | 25.7 | 19.1 |  33.4 |
 | Central African Republic           | 23.6 | 18.3 |  29.7 |
-| Zambia                             | 27.0 | 20.8 |  34.1 |
-| Guinea-Bissau                      | 25.5 | 19.0 |  32.8 |
+| Zambia                             | 27.0 | 20.8 |  34.0 |
+| Guinea-Bissau                      | 25.4 | 19.0 |  32.8 |
 | Kenya                              | 28.8 | 22.1 |  36.5 |
 | Somalia                            |  8.3 |  6.0 |  10.5 |
-| Sudan                              |  9.1 |  6.7 |  11.4 |
-| Senegal                            | 27.8 | 20.6 |  36.0 |
-| Gabon                              | 28.7 | 22.1 |  36.5 |
+| Sudan                              |  9.1 |  6.8 |  11.4 |
+| Senegal                            | 27.8 | 20.6 |  36.1 |
+| Gabon                              | 28.7 | 22.1 |  36.4 |
 | South Sudan                        | 26.0 | 19.9 |  32.9 |
 | Uganda                             | 26.6 | 20.5 |  33.6 |
-| Angola                             | 27.4 | 20.9 |  34.9 |
+| Angola                             | 27.4 | 20.9 |  35.0 |
 | South Africa                       | 24.4 | 18.3 |  31.3 |
 | Mauritania                         | 27.6 | 20.5 |  35.7 |
-| Eritrea                            | 26.5 | 19.8 |  34.2 |
-| Gambia                             | 26.0 | 19.3 |  33.6 |
+| Eritrea                            | 26.5 | 19.8 |  34.3 |
+| Gambia                             | 26.0 | 19.2 |  33.6 |
 | Zimbabwe                           | 25.7 | 20.1 |  32.3 |
 | Equatorial Guinea                  | 26.5 | 20.3 |  33.5 |
-| Mauritius                          | 31.1 | 23.6 |  39.7 |
-| Brazil                             | 40.7 | 36.4 |  45.0 |
+| Mauritius                          | 31.1 | 23.7 |  39.6 |
+| Brazil                             | 40.7 | 36.4 |  44.9 |
 | Mexico                             | 42.8 | 38.4 |  47.1 |
 | Colombia                           | 40.8 | 36.6 |  45.0 |
 | El Salvador                        | 39.6 | 35.5 |  43.7 |
@@ -199,19 +199,19 @@ knitr::kable(t(apply(lle_sim, 2, mean_ci)), digits = 1)
 | Guatemala                          | 40.4 | 36.3 |  44.6 |
 | Nicaragua                          | 41.4 | 37.2 |  45.6 |
 | Peru                               | 41.0 | 36.7 |  45.3 |
-| Haiti                              | 35.7 | 31.9 |  39.6 |
-| Cuba                               | 43.6 | 39.1 |  48.0 |
-| Argentina                          | 40.8 | 36.4 |  45.2 |
-| Costa Rica                         | 44.0 | 39.5 |  48.5 |
-| Suriname                           | 37.5 | 33.3 |  41.7 |
+| Haiti                              | 35.7 | 31.9 |  39.5 |
+| Cuba                               | 43.6 | 39.1 |  48.1 |
+| Argentina                          | 40.8 | 36.3 |  45.3 |
+| Costa Rica                         | 44.0 | 39.6 |  48.5 |
+| Suriname                           | 37.5 | 33.3 |  41.8 |
 | Paraguay                           | 40.7 | 36.5 |  45.0 |
-| Bolivia (Plurinational State of)   | 39.7 | 35.7 |  43.8 |
+| Bolivia (Plurinational State of)   | 39.7 | 35.7 |  43.7 |
 | Guyana                             | 35.3 | 31.2 |  39.3 |
-| Yemen                              |  8.2 |  6.0 |  10.5 |
+| Yemen                              |  8.2 |  5.9 |  10.5 |
 | Saudi Arabia                       |  9.2 |  6.8 |  11.6 |
 | Iraq                               |  8.6 |  6.3 |  10.9 |
 | Iran (Islamic Republic of)         | 10.1 |  7.6 |  12.5 |
-| Oman                               | 10.2 |  7.6 |  12.7 |
+| Oman                               | 10.2 |  7.7 |  12.7 |
 
 ``` r
 save(lle_sim, file = "lle-sim.RData")

@@ -2,7 +2,9 @@
 #' title: MELIOIDOSIS / NTD PLOT
 #' output:
 #'   github_document:
+#'     html_preview: false
 #'     toc: true
+#'     toc_depth: 2
 #' ---
 
 ## required packages

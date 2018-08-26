@@ -1,7 +1,9 @@
 #' ---
 #' output:
 #'   github_document:
+#'     html_preview: false
 #'     toc: true
+#'     toc_depth: 2
 #' ---
 
 #' # Settings
@@ -145,7 +147,7 @@ par(mar = c(4, 10, 4, 1))
 plot(TukeyHSD(aov(y ~ x)), las = 1)
 
 #+ fig.width=6, fig.height=5
-#pdf("BoxplotInc.pdf", 6, 5)
+#tiff("BoxplotInc.tiff", 6, 5, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(1, 1))
 boxplot(y ~ x)
 #graphics.off()
@@ -175,7 +177,7 @@ par(mar = c(4, 10, 4, 1))
 plot(TukeyHSD(aov(y ~ x)), las = 1)
 
 #+ fig.width=6, fig.height=5
-#pdf("BoxplotMrt.pdf", 6, 5)
+#tiff("BoxplotMrt.tiff", 6, 5, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(1, 1))
 boxplot(y ~ x)
 #graphics.off()

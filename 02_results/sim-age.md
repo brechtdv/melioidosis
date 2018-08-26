@@ -1,7 +1,7 @@
 sim-age.R
 ================
 Bdevleesschauwer
-Sun Aug 26 19:11:43 2018
+Sun Aug 26 19:33:26 2018
 
 # Settings
 
@@ -10,18 +10,7 @@ Sun Aug 26 19:11:43 2018
 library(bd)
 library(ggplot2)
 library(mc2d)
-```
 
-    ## Loading required package: mvtnorm
-
-    ## 
-    ## Attaching package: 'mc2d'
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     pmax, pmin
-
-``` r
 ## simulations
 set.seed(264)
 ```

@@ -1,7 +1,7 @@
 MELIOIDOSIS / NTD PLOT
 ================
 Bdevleesschauwer
-Sun Aug 26 19:20:43 2018
+Sun Aug 26 19:42:38 2018
 
 ``` r
 ## required packages
