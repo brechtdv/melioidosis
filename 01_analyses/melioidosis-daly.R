@@ -318,10 +318,10 @@ mean_ci(DALY_GBD_glo_rt)
 
 ## proportion YLL/YLD
 mean_ci(rowSums(YLL_WHO) / rowSums(DALY_WHO))
-mean_ci(rowSums(YLD) / rowSums(DALY_WHO))
+mean_ci(rowSums(YLD_all) / rowSums(DALY_WHO))
 
 mean_ci(rowSums(YLL_GBD) / rowSums(DALY_GBD))
-mean_ci(rowSums(YLD) / rowSums(DALY_GBD))
+mean_ci(rowSums(YLD_all) / rowSums(DALY_GBD))
 
 
 #' # TABLE 2 / DALY BY COUNTRY / REGION / GLOBAL

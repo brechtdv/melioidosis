@@ -1,7 +1,7 @@
 melioidosis-daly.R
 ================
 Bdevleesschauwer
-Sun Aug 26 19:40:03 2018
+Thu Sep 20 22:06:27 2018
 
 # Settings
 
@@ -9,11 +9,45 @@ Sun Aug 26 19:40:03 2018
 ## required packages
 library(bd)
 library(FERG2015)
+```
+
+    ## FERG2015 / version 0.3.0
+
+    ## 
+    ## Attaching package: 'FERG2015'
+
+    ## The following object is masked from 'package:bd':
+    ## 
+    ##     summary_stats
+
+``` r
 library(ggplot2)
 library(ggrepel)
 library(mc2d)
-library(prevalence)
+```
 
+    ## Loading required package: mvtnorm
+
+    ## 
+    ## Attaching package: 'mc2d'
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     pmax, pmin
+
+``` r
+library(prevalence)
+```
+
+    ## Loading required package: rjags
+
+    ## Loading required package: coda
+
+    ## Linked to JAGS 4.3.0
+
+    ## Loaded modules: basemod,bugs
+
+``` r
 ## simulations
 set.seed(264)
 n <- 1e5
@@ -245,7 +279,7 @@ knitr::kable(t(mean_ci(rowSums(MRT_sim))), digits = 0)
 source("sim-age.R")
 ```
 
-![](melioidosis-daly_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->![](melioidosis-daly_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->![](melioidosis-daly_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->![](melioidosis-daly_files/figure-gfm/unnamed-chunk-2-4.png)<!-- -->![](melioidosis-daly_files/figure-gfm/unnamed-chunk-2-5.png)<!-- -->
+![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-2-4.png)<!-- -->![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-2-5.png)<!-- -->
 
 ``` r
 str(reg_inc)
@@ -314,7 +348,7 @@ str(lle_sim)
     ##   ..$ : NULL
     ##   ..$ : chr [1:82] "Indonesia" "Viet Nam" "Philippines" "Thailand" ...
 
-![](melioidosis-daly_files/figure-gfm/unnamed-chunk-2-6.png)<!-- -->
+![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-2-6.png)<!-- -->
 
 # Years of Life Lost
 
@@ -868,11 +902,11 @@ mean_ci(rowSums(YLL_WHO) / rowSums(DALY_WHO))
     ## 0.9887313 0.9767571 0.9954051
 
 ``` r
-mean_ci(rowSums(YLD) / rowSums(DALY_WHO))
+mean_ci(rowSums(YLD_all) / rowSums(DALY_WHO))
 ```
 
-    ##         mean         2.5%        97.5% 
-    ## 0.0010327142 0.0003236961 0.0028833877
+    ##        mean        2.5%       97.5% 
+    ## 0.011268657 0.004594921 0.023242893
 
 ``` r
 mean_ci(rowSums(YLL_GBD) / rowSums(DALY_GBD))
@@ -882,11 +916,11 @@ mean_ci(rowSums(YLL_GBD) / rowSums(DALY_GBD))
     ## 0.9872421 0.9737257 0.9947797
 
 ``` r
-mean_ci(rowSums(YLD) / rowSums(DALY_GBD))
+mean_ci(rowSums(YLD_all) / rowSums(DALY_GBD))
 ```
 
-    ##         mean         2.5%        97.5% 
-    ## 0.0011693655 0.0003669989 0.0032627942
+    ##        mean        2.5%       97.5% 
+    ## 0.012757851 0.005220286 0.026274254
 
 # TABLE 2 / DALY BY COUNTRY / REGION / GLOBAL
 
@@ -1334,7 +1368,16 @@ knitr::kable(t(mean_ci(DALY_GBD_glo_rt, na.rm = T)), digits = 3)
 
 ``` r
 source("global-daly-map.R")
+```
 
+    ## Loading required package: sp
+
+    ## Checking rgeos availability: FALSE
+    ##      Note: when rgeos is not available, polygon geometry     computations in maptools depend on gpclib,
+    ##      which has a restricted licence. It is disabled by default;
+    ##      to enable gpclib, type gpclibPermit()
+
+``` r
 daly_who <- na.omit(colMeans(DALY_WHO_rt))
 
 col1 <- brewer.pal(5, "Reds")
@@ -1342,7 +1385,7 @@ col1 <- brewer.pal(5, "Reds")
 daly_map(daly_who, col1, "Fig1.tiff", save = F)
 ```
 
-![](melioidosis-daly_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 pdf("Fig4.pdf", 12, 5.5)
@@ -1461,7 +1504,7 @@ ggplot(df_haq, aes(x = HAQ, y = DALY)) +
 print(p1)
 ```
 
-![](melioidosis-daly_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 # FIG 5b / SCATTERPLOT DALY-SDI
 
@@ -1573,7 +1616,7 @@ ggplot(df_sdi, aes(x = SDI, y = DALY)) +
 print(p2)
 ```
 
-![](melioidosis-daly_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](melioidosis-daly-20180920_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
 ## combine plots
@@ -1611,29 +1654,28 @@ sessionInfo()
     ## other attached packages:
     ##  [1] RColorBrewer_1.1-2 maps_3.3.0         maptools_0.9-3    
     ##  [4] sp_1.3-1           prevalence_0.4.0   rjags_4-6         
-    ##  [7] coda_0.19-1        ggrepel_0.8.0      FERG2015_0.3.0    
-    ## [10] future.apply_1.0.0 future_1.9.0       mc2d_0.1-18       
-    ## [13] mvtnorm_1.0-8      ggplot2_3.0.0      bd_0.0.12         
+    ##  [7] coda_0.19-1        mc2d_0.1-18        mvtnorm_1.0-8     
+    ## [10] ggrepel_0.8.0      ggplot2_3.0.0      FERG2015_0.3.0    
+    ## [13] bd_0.0.12         
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] spam_2.2-0           tidyselect_0.2.4     listenv_0.7.0       
-    ##  [4] purrr_0.2.5          rJava_0.9-10         lattice_0.20-35     
-    ##  [7] XLConnect_0.2-15     colorspace_1.3-2     htmltools_0.3.6     
-    ## [10] yaml_2.2.0           rlang_0.2.1          pillar_1.3.0        
-    ## [13] foreign_0.8-70       glue_1.3.0           withr_2.1.2         
-    ## [16] readxl_1.1.0         bindrcpp_0.2.2       plyr_1.8.4          
-    ## [19] bindr_0.1.1          stringr_1.3.1        fields_9.6          
-    ## [22] dotCall64_1.0-0      munsell_0.5.0        gtable_0.2.0        
-    ## [25] cellranger_1.1.0     codetools_0.2-15     evaluate_0.11       
-    ## [28] labeling_0.3         knitr_1.20           parallel_3.5.1      
-    ## [31] rworldmap_1.3-6      highr_0.7            Rcpp_0.12.18        
-    ## [34] xtable_1.8-2         XLConnectJars_0.2-15 scales_0.5.0        
-    ## [37] backports_1.1.2      digest_0.6.15        stringi_1.1.7       
-    ## [40] dplyr_0.7.6          cowplot_0.9.3        grid_3.5.1          
-    ## [43] rprojroot_1.3-2      tools_3.5.1          magrittr_1.5        
-    ## [46] lazyeval_0.2.1       tibble_1.4.2         crayon_1.3.4        
-    ## [49] pkgconfig_2.0.1      assertthat_0.2.0     rmarkdown_1.10      
-    ## [52] globals_0.12.1       R6_2.2.2             compiler_3.5.1
+    ##  [1] spam_2.2-0           tidyselect_0.2.4     purrr_0.2.5         
+    ##  [4] rJava_0.9-10         lattice_0.20-35      XLConnect_0.2-15    
+    ##  [7] colorspace_1.3-2     htmltools_0.3.6      yaml_2.2.0          
+    ## [10] rlang_0.2.1          pillar_1.3.0         foreign_0.8-70      
+    ## [13] glue_1.3.0           withr_2.1.2          readxl_1.1.0        
+    ## [16] bindrcpp_0.2.2       plyr_1.8.4           bindr_0.1.1         
+    ## [19] stringr_1.3.1        fields_9.6           dotCall64_1.0-0     
+    ## [22] munsell_0.5.0        gtable_0.2.0         cellranger_1.1.0    
+    ## [25] evaluate_0.11        labeling_0.3         knitr_1.20          
+    ## [28] highr_0.7            rworldmap_1.3-6      Rcpp_0.12.18        
+    ## [31] xtable_1.8-3         XLConnectJars_0.2-15 scales_1.0.0        
+    ## [34] backports_1.1.2      digest_0.6.15        stringi_1.1.7       
+    ## [37] dplyr_0.7.6          cowplot_0.9.3        grid_3.5.1          
+    ## [40] rprojroot_1.3-2      tools_3.5.1          magrittr_1.5        
+    ## [43] lazyeval_0.2.1       tibble_1.4.2         crayon_1.3.4        
+    ## [46] pkgconfig_2.0.1      assertthat_0.2.0     rmarkdown_1.10      
+    ## [49] R6_2.2.2             compiler_3.5.1
 
 ``` r
 ## render script
