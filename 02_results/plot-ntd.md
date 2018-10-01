@@ -1,7 +1,7 @@
 MELIOIDOSIS / NTD PLOT
 ================
 Bdevleesschauwer
-Sun Aug 26 19:42:38 2018
+Mon Oct 01 10:08:08 2018
 
 ``` r
 ## required packages
@@ -13,14 +13,28 @@ library(ggrepel)
 dta <- readxl("../02_data/20180815/NTDi.xlsx")
 dta$Cat <- factor(dta$Cat)
 dta$Cat[dta$Disease_State == "Leptospirosis"] <- 1
-str(dta)
+knitr::kable(dta)
 ```
 
-    ## 'data.frame':    17 obs. of  4 variables:
-    ##  $ Disease_State    : chr  "African Trypanosomiasis" "Chagas Disease" "Cysticercosis" "Dengue" ...
-    ##  $ DALY             : num  0.2 0.24 1.96 2.86 0.69 1.09 4.56 1.06 0.42 2.9 ...
-    ##  $ Cat              : Factor w/ 3 levels "1","2","3": 1 1 1 1 1 1 1 1 1 1 ...
-    ##  $ Global_Investment: num  400 221 24 788 4 105 283 516 109 5 ...
+| Disease\_State                 | DALY | Cat | Global\_Investment |
+| :----------------------------- | ---: | :-- | -----------------: |
+| African Trypanosomiasis        | 0.20 | 1   |                400 |
+| Chagas Disease                 | 0.24 | 1   |                221 |
+| Cysticercosis                  | 1.96 | 1   |                 24 |
+| Dengue                         | 2.86 | 1   |                788 |
+| Echinococcosis                 | 0.69 | 1   |                  4 |
+| Food-borne Trematodiases       | 1.09 | 1   |                105 |
+| Intestinal Nematode Infections | 4.56 | 1   |                283 |
+| Leishmaniasis                  | 1.06 | 1   |                516 |
+| Leprosy                        | 0.42 | 1   |                109 |
+| Leptospirosis                  | 2.90 | 1   |                  5 |
+| Lymphatic Filariasis           | 1.24 | 1   |                146 |
+| Melioidosis                    | 4.64 | 3   |                  4 |
+| Onchocerciasis                 | 0.99 | 1   |                103 |
+| Rabies                         | 1.63 | 1   |                  4 |
+| Schistosomiasis                | 2.63 | 1   |                244 |
+| Trachoma                       | 0.24 | 1   |                 23 |
+| Yellow Fever                   | 0.63 | 1   |                  4 |
 
 ``` r
 ## make plot

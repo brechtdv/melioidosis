@@ -16,7 +16,7 @@ library(ggrepel)
 dta <- readxl("../02_data/20180815/NTDi.xlsx")
 dta$Cat <- factor(dta$Cat)
 dta$Cat[dta$Disease_State == "Leptospirosis"] <- 1
-str(dta)
+knitr::kable(dta)
 
 ## make plot
 pdf("NTD.pdf", 10, 6)
