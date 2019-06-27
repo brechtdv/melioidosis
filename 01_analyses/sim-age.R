@@ -13,6 +13,12 @@ library(bd)
 library(ggplot2)
 library(mc2d)
 
+## helper function
+ratio <-
+function(x) {
+  x[1] / x[2]
+}
+
 ## simulations
 set.seed(264)
 
@@ -147,17 +153,17 @@ par(mar = c(4, 10, 4, 1))
 plot(TukeyHSD(aov(y ~ x)), las = 1)
 
 #+ fig.width=6, fig.height=5
-#tiff("BoxplotInc.tiff", 6, 5, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(1, 1))
 boxplot(y ~ x)
-#graphics.off()
 
 #+ fig.height=8, fig.width=10
+tiff("BoxplotInc.tiff", 10, 8, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(2, 3))
 for (i in seq_along(reg_inc)) {
   main <- sprintf("%s (n=%s)", names(reg_inc)[i], nrow(reg_inc[[i]]))
-  hist(reg_inc[[i]]$age, main = main)
+  hist(reg_inc[[i]]$age, main = main, xlab = "Age")
 }
+dev.off()
 
 
 #' ## MORTALITY
@@ -177,17 +183,17 @@ par(mar = c(4, 10, 4, 1))
 plot(TukeyHSD(aov(y ~ x)), las = 1)
 
 #+ fig.width=6, fig.height=5
-#tiff("BoxplotMrt.tiff", 6, 5, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(1, 1))
 boxplot(y ~ x)
-#graphics.off()
 
 #+ fig.height=8, fig.width=10
+tiff("BoxplotMrt.tiff", 10, 8, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(2, 3))
 for (i in seq_along(reg_mrt)) {
   main <- sprintf("%s (n=%s)", names(reg_mrt)[i], nrow(reg_mrt[[i]]))
-  hist(reg_mrt[[i]]$age, main = main)
+  hist(reg_mrt[[i]]$age, main = main, xlab = "Age")
 }
+dev.off()
 
 
 #' # FIG 4a / BARPLOT GLOBAL INC AGE-SEX
@@ -267,10 +273,14 @@ cowplot::plot_grid(
 with(df_inc, table(AgeGrp, Sex))
 with(df_inc, table(AgeGrp, Sex) / nrow(df_inc))
 t(apply(with(df_inc, table(AgeGrp, Sex)), 1, prop.table))
+1/ratio(with(subset(df_inc, Age < 15), tapply(Age, Sex, sum)))
+1/ratio(with(subset(df_inc, Age >= 15), tapply(Age, Sex, sum)))
 
 with(df_mrt, table(AgeGrp, Sex))
 with(df_mrt, table(AgeGrp, Sex) / nrow(df_mrt))
 t(apply(with(df_mrt, table(AgeGrp, Sex)), 1, prop.table))
+1/ratio(with(subset(df_mrt, Age < 15), tapply(Age, Sex, sum)))
+1/ratio(with(subset(df_mrt, Age >= 15), tapply(Age, Sex, sum)))
 
 
 ##rmarkdown::render("sim-age.R")

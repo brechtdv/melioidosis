@@ -1,7 +1,20 @@
 sim-age.R
 ================
-Bdevleesschauwer
-Sun Aug 26 19:33:26 2018
+BrDe394
+2019-06-27
+
+  - [Settings](#settings)
+  - [Load data](#load-data)
+  - [Simulations](#simulations)
+      - [INCIDENCE](#incidence)
+      - [MORTALITY](#mortality)
+  - [Summarize results](#summarize-results)
+      - [INCIDENCE](#incidence-1)
+      - [MORTALITY](#mortality-1)
+  - [FIG 4a / BARPLOT GLOBAL INC
+    AGE-SEX](#fig-4a-barplot-global-inc-age-sex)
+  - [FIG 4b / BARPLOT GLOBAL MRT
+    AGE-SEX](#fig-4b-barplot-global-mrt-age-sex)
 
 # Settings
 
@@ -10,6 +23,12 @@ Sun Aug 26 19:33:26 2018
 library(bd)
 library(ggplot2)
 library(mc2d)
+
+## helper function
+ratio <-
+function(x) {
+  x[1] / x[2]
+}
 
 ## simulations
 set.seed(264)
@@ -445,7 +464,6 @@ plot(TukeyHSD(aov(y ~ x)), las = 1)
 ![](sim-age_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
-#pdf("BoxplotInc.pdf", 6, 5)
 par(mfrow = c(1, 1))
 boxplot(y ~ x)
 ```
@@ -453,18 +471,17 @@ boxplot(y ~ x)
 ![](sim-age_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
-#graphics.off()
-```
-
-``` r
+tiff("BoxplotInc.tiff", 10, 8, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(2, 3))
 for (i in seq_along(reg_inc)) {
   main <- sprintf("%s (n=%s)", names(reg_inc)[i], nrow(reg_inc[[i]]))
-  hist(reg_inc[[i]]$age, main = main)
+  hist(reg_inc[[i]]$age, main = main, xlab = "Age")
 }
+dev.off()
 ```
 
-![](sim-age_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+    ## png 
+    ##   2
 
 ## MORTALITY
 
@@ -503,7 +520,6 @@ plot(TukeyHSD(aov(y ~ x)), las = 1)
 ![](sim-age_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ``` r
-#pdf("BoxplotMrt.pdf", 6, 5)
 par(mfrow = c(1, 1))
 boxplot(y ~ x)
 ```
@@ -511,18 +527,17 @@ boxplot(y ~ x)
 ![](sim-age_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
-#graphics.off()
-```
-
-``` r
+tiff("BoxplotMrt.tiff", 10, 8, units = "in", res = 300, compress = "lzw")
 par(mfrow = c(2, 3))
 for (i in seq_along(reg_mrt)) {
   main <- sprintf("%s (n=%s)", names(reg_mrt)[i], nrow(reg_mrt[[i]]))
-  hist(reg_mrt[[i]]$age, main = main)
+  hist(reg_mrt[[i]]$age, main = main, xlab = "Age")
 }
+dev.off()
 ```
 
-![](sim-age_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+    ## png 
+    ##   2
 
 # FIG 4a / BARPLOT GLOBAL INC AGE-SEX
 
@@ -682,6 +697,20 @@ t(apply(with(df_inc, table(AgeGrp, Sex)), 1, prop.table))
     ##   (85,100] 0.3125000 0.6875000
 
 ``` r
+1/ratio(with(subset(df_inc, Age < 15), tapply(Age, Sex, sum)))
+```
+
+    ##    FALSE 
+    ## 1.012163
+
+``` r
+1/ratio(with(subset(df_inc, Age >= 15), tapply(Age, Sex, sum)))
+```
+
+    ##    FALSE 
+    ## 1.796205
+
+``` r
 with(df_mrt, table(AgeGrp, Sex))
 ```
 
@@ -758,6 +787,20 @@ t(apply(with(df_mrt, table(AgeGrp, Sex)), 1, prop.table))
     ##   (75,80]  0.2000000 0.8000000
     ##   (80,85]  0.2500000 0.7500000
     ##   (85,100] 0.0000000 1.0000000
+
+``` r
+1/ratio(with(subset(df_mrt, Age < 15), tapply(Age, Sex, sum)))
+```
+
+    ##   FALSE 
+    ## 1.05257
+
+``` r
+1/ratio(with(subset(df_mrt, Age >= 15), tapply(Age, Sex, sum)))
+```
+
+    ##    FALSE 
+    ## 1.842893
 
 ``` r
 ##rmarkdown::render("sim-age.R")
